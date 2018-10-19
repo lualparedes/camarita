@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "sdkVersion": "27.0.0",
+    "packagerOpts": {
+      "sourceExts": ["ts", "tsx"],
+      "transformer": "node_modules/react-native-typescript-transformer/index.js"
+    },
+    "name": "Camarita",
+    "icon": "./src/assets/img/icon.png",
+    "version": "0.0.1",
+    "slug": "camarita",
+  }
+}
