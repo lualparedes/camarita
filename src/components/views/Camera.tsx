@@ -38,7 +38,6 @@ export default class CameraView extends React.Component<CameraProps, CameraState
       this.camera
         .takePictureAsync()
         .then((photo) => {
-          console.log('photo was taken')
           this.savePicture(photo);
           this.props.history.push('/camera-roll', { newPhoto: photo.uri });
         })
