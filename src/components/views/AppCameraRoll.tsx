@@ -17,6 +17,16 @@ export default class AppCameraRoll extends React.Component<AppCameraRollProps, A
     };
   }
 
+  deletePicture(picture: string) {
+    FileSystem.deleteAsync(`${FileSystem.documentDirectory}photos/${picture}`)
+      .then(() => {
+        this.setState((prevState) => ({
+          pictures: prevState.pictures.filter((storedPic) => storedPic !== picture),
+        }));
+      })
+      .catch((err) => { console.log(err); });
+  }
+
   componentDidMount() {
     FileSystem.readDirectoryAsync(`${FileSystem.documentDirectory}photos/`)
       .then((filelist) => {
@@ -38,7 +48,10 @@ export default class AppCameraRoll extends React.Component<AppCameraRollProps, A
                 style={ styles.picture }
                 key={ `picture-${i}` }
               >
-                <TouchableHighlight style={ styles.deleteIcon }>
+                <TouchableHighlight 
+                  style={ styles.deleteIcon }
+                  onPress={ () => this.deletePicture(pic) }
+                >
                   <Image
                     source={ require('../../assets/img/icon_delete.png') }
                     style={ styles.deleteIcon__img }
