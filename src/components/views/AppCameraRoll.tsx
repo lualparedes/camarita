@@ -2,26 +2,41 @@
 import * as React from 'react';
 import { View, ScrollView, Image, TouchableHighlight, Text } from 'react-native';
 import { withRouter } from 'react-router-native';
+import { FileSystem } from 'expo';
 
 import Header from '../molecules/Header';
 import styles from './AppCameraRoll.styles';
 
 export default class AppCameraRoll extends React.Component<AppCameraRollProps, AppCameraRollState> {
 
-  render() {
-    const images = [
-      this.props.history.location.state.newPhoto,
-    ];
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      pictures: [],
+    };
+  }
+
+  componentDidMount() {
+    FileSystem.readDirectoryAsync(`${FileSystem.documentDirectory}photos/`)
+      .then((filelist) => {
+        this.setState({
+          pictures: filelist,
+        });
+      })
+      .catch((err) => { console.log(err); });
+  }
+
+  render() {
     return (
       <View style={{ flex: 1 }}>
         <Header title='Pictures taken'></Header>
         <ScrollView contentContainerStyle={ styles.scrollView }>
           {
-            images.map((img, i) => (
+            this.state.pictures.map((pic, i) => (
               <View
                 style={ styles.picture }
-                key={ `image-${i}` }
+                key={ `picture-${i}` }
               >
                 <TouchableHighlight style={ styles.deleteIcon }>
                   <Image
@@ -30,7 +45,7 @@ export default class AppCameraRoll extends React.Component<AppCameraRollProps, A
                   />
                 </TouchableHighlight>
                 <Image
-                  source={{ uri: img }}
+                  source={{ uri: pic }}
                   style={ styles.picture__content }
                   resizeMode="contain"
                 />
