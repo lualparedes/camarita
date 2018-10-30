@@ -1,5 +1,7 @@
 import { StyleSheet } from 'react-native';
 
+import constants from '../../assets/styles/config';
+
 const styles = StyleSheet.create({
 	scrollView: {
     justifyContent: 'flex-end',
@@ -33,6 +35,55 @@ const styles = StyleSheet.create({
   deleteIcon__img: {
   	height: 36,
   	width: 36,
+  },
+  modalConfirmation: {
+    padding: 32,
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  modalConfirmation__icon: {
+    margin: 'auto',
+    height: 24,
+    width: 24,
+  },
+  modalConfirmation__text: {
+    fontFamily: 'Muli',
+    color: constants.COLOR_TEXT,
+    textAlign: 'center',
+    paddingHorizontal: 48,
+    paddingTop: 36,
+    paddingBottom: 48,
+    fontSize: 16,
+    lineHeight: 24,
+  },
+  'buttonOption--main': {
+    backgroundColor: constants.COLOR_ACCENT_2,
+    borderRadius: 24,
+    height: 48,
+    paddingVertical: 14,
+    paddingHorizontal: 32,
+  },
+  'buttonOption--main__text': {
+    color: '#ffffff',
+    fontFamily: 'Muli-Black',
+    letterSpacing: 4,
+    textAlign: 'center',
+  },
+  'buttonOption--secondary': {
+    borderColor: constants.COLOR_ACCENT_2,
+    borderWidth: 2,
+    borderRadius: 24,
+    height: 48,
+    paddingVertical: 12,
+    paddingHorizontal: 32,
+    marginBottom: 16,
+  },
+  'buttonOption--secondary__text': {
+    color: constants.COLOR_ACCENT_2,
+    fontFamily: 'Muli-Black',
+    letterSpacing: 4,
+    textAlign: 'center',
   },
 });
 
