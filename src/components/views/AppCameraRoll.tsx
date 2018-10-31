@@ -14,24 +14,25 @@ export default class AppCameraRoll extends React.Component<AppCameraRollProps, A
     this.state = {
       pictures: [],
       modalVisible: false,
+      pictureToDelete: '',
     };
   }
 
-  setModalVisible(visible: boolean) {
-    this.setState({modalVisible: visible});
-  }
-
   deletePicture(picture: string) {
-    this.setState({modalVisible: true});
-    /*
     FileSystem.deleteAsync(`${FileSystem.documentDirectory}photos/${picture}`)
       .then(() => {
         this.setState((prevState) => ({
           pictures: prevState.pictures.filter((storedPic) => storedPic !== picture),
         }));
       })
-      .catch((err) => { console.log(err); });
-    */
+      .catch((err) => { console.log(`There was an error while deleting: ${err}`); });
+  }
+
+  askForConfirmationToDelete(picture: string) {
+    this.setState({
+      modalVisible: true,
+      pictureToDelete: picture,
+    });
   }
 
   componentDidMount() {
@@ -57,7 +58,7 @@ export default class AppCameraRoll extends React.Component<AppCameraRollProps, A
               >
                 <TouchableHighlight
                   style={ styles.deleteIcon }
-                  onPress={ () => this.deletePicture(pic) }
+                  onPress={ () => this.askForConfirmationToDelete(pic) }
                 >
                   <Image
                     source={ require('../../assets/img/icon_delete.png') }
@@ -93,7 +94,10 @@ export default class AppCameraRoll extends React.Component<AppCameraRollProps, A
             <TouchableHighlight
               style={ styles['buttonOption--secondary'] }
               onPress={() => {
-                this.setModalVisible(!this.state.modalVisible);
+                this.setState({
+                  modalVisible: false,
+                  pictureToDelete: '',
+                })
               }}
             >
               <Text style={ styles['buttonOption--secondary__text'] }>CANCEL</Text>
@@ -101,7 +105,8 @@ export default class AppCameraRoll extends React.Component<AppCameraRollProps, A
             <TouchableHighlight
               style={ styles['buttonOption--main'] }
               onPress={() => {
-                this.setModalVisible(!this.state.modalVisible);
+                this.setState({ modalVisible: false });
+                this.deletePicture(this.state.pictureToDelete);
               }}
             >
               <Text style={ styles['buttonOption--main__text'] }>DELETE</Text>
