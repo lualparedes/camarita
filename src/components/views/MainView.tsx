@@ -6,10 +6,6 @@ import styles from './MainView.styles';
 import FeatureImage from '../atoms/FeatureImage';
 import ButtonMain from '../atoms/ButtonMain';
 
-function openCamera() {
-  console.log('inside openCamera');
-}
-
 export default class MainView extends React.Component<MainViewProps, MainViewState> {
   render() {
     return (
