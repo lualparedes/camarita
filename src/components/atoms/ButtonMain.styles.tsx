@@ -4,7 +4,7 @@ import constants from '../../assets/styles/config';
 
 const styles = StyleSheet.create({
   buttonMain: {
-    backgroundColor: constants.COLOR_ACCENT_2,
+    backgroundColor: constants.themeLight.COLOR_ACCENT_2,
     borderRadius: 24,
     height: 48,
     paddingVertical: 14,

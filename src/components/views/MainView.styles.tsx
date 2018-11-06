@@ -5,15 +5,20 @@ import constants from '../../assets/styles/config';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
     padding: 48,
     paddingTop: 12,
   },
+  'container--light': {
+    backgroundColor: '#fff',
+  },
+  'container--dark': {
+    backgroundColor: '#fff',
+  },
   message: {
     fontFamily: 'Muli',
-    color: constants.COLOR_TEXT,
+    color: constants.themeLight.COLOR_TEXT,
     textAlign: 'center',
     paddingHorizontal: 48,
     paddingTop: 36,

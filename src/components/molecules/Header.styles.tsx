@@ -4,7 +4,7 @@ import constants from '../../assets/styles/config';
 const styles = StyleSheet.create({
 	header: {
 		height: 84,
-	  backgroundColor: constants.COLOR_ACCENT_2,
+	  backgroundColor: constants.themeLight.COLOR_ACCENT_2,
 	  padding: 16,
 	  paddingTop: 38,
 	  flexDirection: 'row',

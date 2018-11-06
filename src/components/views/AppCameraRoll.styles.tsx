@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   },
   modalConfirmation__text: {
     fontFamily: 'Muli',
-    color: constants.COLOR_TEXT,
+    color: constants.themeLight.COLOR_TEXT,
     textAlign: 'center',
     paddingHorizontal: 48,
     paddingTop: 36,
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     lineHeight: 24,
   },
   'buttonOption--main': {
-    backgroundColor: constants.COLOR_ACCENT_2,
+    backgroundColor: constants.themeLight.COLOR_ACCENT_2,
     borderRadius: 24,
     height: 48,
     paddingVertical: 14,
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   'buttonOption--secondary': {
-    borderColor: constants.COLOR_ACCENT_2,
+    borderColor: constants.themeLight.COLOR_ACCENT_2,
     borderWidth: 2,
     borderRadius: 24,
     height: 48,
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   'buttonOption--secondary__text': {
-    color: constants.COLOR_ACCENT_2,
+    color: constants.themeLight.COLOR_ACCENT_2,
     fontFamily: 'Muli-Black',
     letterSpacing: 4,
     textAlign: 'center',
