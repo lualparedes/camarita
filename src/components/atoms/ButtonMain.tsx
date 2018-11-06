@@ -2,6 +2,7 @@
 import * as React from 'react';
 import { StyleSheet, Text } from 'react-native';
 import { Link } from 'react-router-native';
+import { Consumer } from '../../Context';
 
 import styles from './ButtonMain.styles';
 

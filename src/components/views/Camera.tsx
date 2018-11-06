@@ -18,7 +18,7 @@ export default class CameraView extends React.Component<CameraProps, CameraState
     hasCameraPermission: null,
   };
 
-  savePicture = (photo) => {    
+  savePicture = (photo) => {
     FileSystem.moveAsync({
       from: photo.uri,
       to: `${FileSystem.documentDirectory}photos/${Date.now()}.jpg`,

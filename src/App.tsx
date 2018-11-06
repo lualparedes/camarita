@@ -6,6 +6,7 @@ import { Router, Route, Link } from 'react-router-native';
 import createHistory from 'history/createMemoryHistory';
 
 import styles from './App.styles';
+import { Provider } from './Context';
 import MainView from './components/views/MainView';
 import CameraView from './components/views/Camera';
 import AppCameraRoll from './components/views/AppCameraRoll';
@@ -13,7 +14,7 @@ import AppCameraRoll from './components/views/AppCameraRoll';
 const history = createHistory();
 
 export default class App extends React.Component<AppProps, AppState> {
-  
+
   constructor() {
     this.state = { loadedAssets: false };
   }
@@ -29,17 +30,18 @@ export default class App extends React.Component<AppProps, AppState> {
     .catch((err) => {
       console.log(`Fonts couldn't be imported.\nMore details:\n${err}`);
     });
-
   }
 
   render() {
     return this.state.loadedAssets && (
       <Router history={ history }>
-        <View style={ styles.app }>
-          <Route exact path="/" component={ MainView }/>
-          <Route path="/camera" component={ CameraView }/>
-          <Route path="/camera-roll" component={ AppCameraRoll }/>
-        </View>
+        <Provider value={'light'}>
+          <View style={ styles.app }>
+            <Route exact path="/" component={ MainView }/>
+            <Route path="/camera" component={ CameraView }/>
+            <Route path="/camera-roll" component={ AppCameraRoll }/>
+          </View>
+        </Provider>
       </Router>
     );
   }
