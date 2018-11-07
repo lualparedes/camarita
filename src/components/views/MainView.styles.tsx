@@ -11,20 +11,25 @@ const styles = StyleSheet.create({
     paddingTop: 12,
   },
   'container--light': {
-    backgroundColor: '#fff',
+    backgroundColor: constants.themeLight.COLOR_BG,
   },
   'container--dark': {
-    backgroundColor: '#fff',
+    backgroundColor: constants.themeDark.COLOR_BG,
   },
   message: {
     fontFamily: 'Muli',
-    color: constants.themeLight.COLOR_TEXT,
     textAlign: 'center',
     paddingHorizontal: 48,
     paddingTop: 36,
     paddingBottom: 48,
     fontSize: 16,
     lineHeight: 24,
+  },
+  'message--light': {
+    color: constants.themeLight.COLOR_TEXT,
+  },
+  'message--dark': {
+    color: constants.themeDark.COLOR_TEXT,
   },
 });
 
