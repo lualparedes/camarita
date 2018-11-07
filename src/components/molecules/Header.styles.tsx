@@ -4,7 +4,6 @@ import constants from '../../assets/styles/config';
 const styles = StyleSheet.create({
 	header: {
 		height: 84,
-	  backgroundColor: constants.themeLight.COLOR_ACCENT_2,
 	  padding: 16,
 	  paddingTop: 38,
 	  flexDirection: 'row',
@@ -13,6 +12,12 @@ const styles = StyleSheet.create({
 	  shadowOffset: { width: 0, height: -8 },
 	  shadowOpacity: 0.8,
 	  shadowRadius: 8,
+	},
+	'header--light': {
+	  backgroundColor: constants.themeLight.COLOR_ACCENT_2,
+	},
+	'header--dark': {
+	  backgroundColor: constants.themeDark.COLOR_ACCENT_2,
 	},
 	header__icon: {
 		height: 32,
