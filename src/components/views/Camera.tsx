@@ -11,6 +11,7 @@ import { Link, withRouter } from 'react-router-native';
 import { Camera, Permissions, FileSystem } from 'expo';
 
 import styles from './Camera.styles';
+import { Consumer } from '../../Context';
 
 export default class CameraView extends React.Component<CameraProps, CameraState> {
 
@@ -72,12 +73,17 @@ export default class CameraView extends React.Component<CameraProps, CameraState
             style={ styles.container } 
             type={ this.state.type }
           >
-            <TouchableOpacity onPress={ this.takePicture }>
-              <Image
-                style={ styles.trigger }
-                source={ require('../../assets/img/icon_cam_trigger.png') }
-              />
-            </TouchableOpacity>
+            <Consumer>
+              {
+                (theme) =>
+                <TouchableOpacity onPress={ this.takePicture }>
+                  <Image
+                    style={ styles.trigger }
+                    source={ require('../../assets/img/icon_cam_trigger.png') }
+                  />
+                </TouchableOpacity>
+              }
+            </Consumer>
           </Camera>
         </View>
       );

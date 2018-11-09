@@ -13,9 +13,9 @@ export default class MainView extends React.Component<MainViewProps, MainViewSta
       <Consumer>
         {
           (theme) =>
-          <View style={styles.container}>
+          <View style={ [styles.container, styles[`container--${theme}`]] }>
             <FeatureImage/>
-            <Text style={styles.message}>
+            <Text style={ [styles.message, styles[`message--${theme}`]] }>
               Hey there!{'\n'}
               I'm Doug the photogenic dog and I'm here to wish you a happy picture
             </Text>
