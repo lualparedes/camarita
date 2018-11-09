@@ -11,8 +11,8 @@ const constants = {
   themeDark: {
   	COLOR_TEXT: '#ffffff',
     COLOR_BG: '#14171e',
-  	COLOR_ACCENT: '#f6515a',
-  	COLOR_ACCENT_2: '#faaa54',
+  	COLOR_ACCENT: '#6de1ca',
+  	COLOR_ACCENT_2: '#9ce977',
   	GRADIENT_MAIN: '',
   }
 };
