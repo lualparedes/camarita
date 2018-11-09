@@ -48,6 +48,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  'modalConfirmation--light': {
+    backgroundColor: constants.themeLight.COLOR_BG,
+  },
+  'modalConfirmation--dark': {
+    backgroundColor: constants.themeDark.COLOR_BG,
+  },
   modalConfirmation__icon: {
     margin: 'auto',
     height: 24,
@@ -75,10 +81,10 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
     paddingHorizontal: 32,
   },
-  'buttonOption--mainLight': {
+  'buttonOption--mainlight': {
     backgroundColor: constants.themeLight.COLOR_ACCENT_2,
   },
-  'buttonOption--mainDark': {
+  'buttonOption--maindark': {
     backgroundColor: constants.themeDark.COLOR_ACCENT_2,
   },
   'buttonOption--main__text': {
@@ -95,10 +101,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 32,
     marginBottom: 16,
   },
-  'buttonOption--secondaryLight': {
+  'buttonOption--secondarylight': {
     borderColor: constants.themeLight.COLOR_ACCENT_2,
   },
-  'buttonOption--secondaryDark': {
+  'buttonOption--secondarydark': {
     borderColor: constants.themeDark.COLOR_ACCENT_2,
   },
   'buttonOption--secondary__text': {
@@ -106,10 +112,10 @@ const styles = StyleSheet.create({
     letterSpacing: 4,
     textAlign: 'center',
   },
-  'buttonOption--secondaryLight__text': {
+  'buttonOption--secondarylight__text': {
     color: constants.themeLight.COLOR_ACCENT_2,
   },
-  'buttonOption--secondaryDark__text': {
+  'buttonOption--secondarydark__text': {
     color: constants.themeLight.COLOR_ACCENT_2,
   },
 });
