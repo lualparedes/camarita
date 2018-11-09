@@ -7,6 +7,12 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     alignItems: 'center',
 	},
+  'scrollView--light': {
+    backgroundColor: constants.themeLight.COLOR_BG,
+  },
+  'scrollView--dark': {
+    backgroundColor: constants.themeDark.COLOR_BG,
+  },
   picture: {
   	width: 412,
   	height: 412,
