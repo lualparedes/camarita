@@ -34,6 +34,12 @@ const styles = StyleSheet.create({
 		paddingLeft: 16,
 		flexGrow: 1,
 	},
+	'header__title--light': {
+		color: constants.themeLight.COLOR_TEXT,
+	},
+	'header__title--dark': {
+		color: constants.themeDark.COLOR_TEXT,
+	},
 });
 
 export default styles;
