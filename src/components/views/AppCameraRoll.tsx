@@ -47,105 +47,111 @@ export default class AppCameraRoll extends React.Component<AppCameraRollProps, A
   }
 
   render() {
+    const iconDeleteSrc = this.props.context === 'light' ?
+      require('../../assets/img/icon_delete--light.png') :
+      require('../../assets/img/icon_delete--dark.png');
     return (
       <Consumer>
         {
-          (theme) =>
-          <View style={{ flex: 1 }}>
-            <Header title='Pictures taken'></Header>
-            <ScrollView 
-              contentContainerStyle={[
-                styles.scrollView, 
-                styles[`scrollView--${theme}`]
-              ]}
-            >
-              {
-                this.state.pictures.map((pic, i) => (
-                  <View
-                    style={ styles.picture }
-                    key={ `picture-${i}` }
-                  >
-                    <TouchableHighlight
-                      style={ styles.deleteIcon }
-                      onPress={ () => this.askForConfirmationToDelete(pic) }
-                    >
-                      <Image
-                        source={ require('../../assets/img/icon_delete.png') }
-                        style={ styles.deleteIcon__img }
-                      />
-                    </TouchableHighlight>
-                    <Image
-                      source={{ uri: pic }}
-                      style={ styles.picture__content }
-                      resizeMode="contain"
-                    />
-                  </View>
-                ))
-              }
-            </ScrollView>
-
-            <Modal
-              animationType="slide"
-              transparent={false}
-              visible={this.state.modalVisible}
-              onRequestClose={() => {
-                Alert.alert('Modal has been closed.');
-              }}
-            >
-              <View 
-                style={[
-                  styles.modalConfirmation,
-                  styles[`modalConfirmation--${theme}`]
-                ]}
-              >
-                <Image
-                  style={ styles.modalConfirmation__icon }
-                  source={ require('../../assets/img/emoji_thinking_face.png') }
-                />
-                <Text
-                  style={[
-                    styles.modalConfirmation__text,
-                    styles[`modalConfirmation__text--${theme}`]
+          (theme) => {
+            return (
+              <View style={{ flex: 1 }}>
+                <Header title='Pictures taken'></Header>
+                <ScrollView
+                  contentContainerStyle={[
+                    styles.scrollView,
+                    styles[`scrollView--${theme}`]
                   ]}
                 >
-                  Do you really want to delete the picture?
-                </Text>
-                <TouchableHighlight
-                  style={[
-                    styles['buttonOption--secondary'],
-                    styles[`buttonOption--secondary${theme}`]
-                  ]}
-                  onPress={() => {
-                    this.setState({
-                      modalVisible: false,
-                      pictureToDelete: '',
-                    })
+                  {
+                    this.state.pictures.map((pic, i) => (
+                      <View
+                        style={ styles.picture }
+                        key={ `picture-${i}` }
+                      >
+                        <TouchableHighlight
+                          style={ styles.deleteIcon }
+                          onPress={ () => this.askForConfirmationToDelete(pic) }
+                        >
+                          <Image
+                            source={ iconDeleteSrc }
+                            style={ styles.deleteIcon__img }
+                          />
+                        </TouchableHighlight>
+                        <Image
+                          source={{ uri: pic }}
+                          style={ styles.picture__content }
+                          resizeMode="contain"
+                        />
+                      </View>
+                    ))
+                  }
+                </ScrollView>
+
+                <Modal
+                  animationType="slide"
+                  transparent={false}
+                  visible={this.state.modalVisible}
+                  onRequestClose={() => {
+                    Alert.alert('Modal has been closed.');
                   }}
                 >
-                  <Text
+                  <View
                     style={[
-                      styles['buttonOption--secondary__text'],
-                      styles[`buttonOption--secondary${theme}__text`]
+                      styles.modalConfirmation,
+                      styles[`modalConfirmation--${theme}`]
                     ]}
                   >
-                    CANCEL
-                  </Text>
-                </TouchableHighlight>
-                <TouchableHighlight
-                  style={[
-                    styles['buttonOption--main'],
-                    styles[`buttonOption--main${theme}`]
-                  ]}
-                  onPress={() => {
-                    this.setState({ modalVisible: false });
-                    this.deletePicture(this.state.pictureToDelete);
-                  }}
-                >
-                  <Text style={ styles['buttonOption--main__text'] }>DELETE</Text>
-                </TouchableHighlight>
+                    <Image
+                      style={ styles.modalConfirmation__icon }
+                      source={ require('../../assets/img/emoji_thinking_face.png') }
+                    />
+                    <Text
+                      style={[
+                        styles.modalConfirmation__text,
+                        styles[`modalConfirmation__text--${theme}`]
+                      ]}
+                    >
+                      Do you really want to delete the picture?
+                    </Text>
+                    <TouchableHighlight
+                      style={[
+                        styles['buttonOption--secondary'],
+                        styles[`buttonOption--secondary${theme}`]
+                      ]}
+                      onPress={() => {
+                        this.setState({
+                          modalVisible: false,
+                          pictureToDelete: '',
+                        })
+                      }}
+                    >
+                      <Text
+                        style={[
+                          styles['buttonOption--secondary__text'],
+                          styles[`buttonOption--secondary${theme}__text`]
+                        ]}
+                      >
+                        CANCEL
+                      </Text>
+                    </TouchableHighlight>
+                    <TouchableHighlight
+                      style={[
+                        styles['buttonOption--main'],
+                        styles[`buttonOption--main${theme}`]
+                      ]}
+                      onPress={() => {
+                        this.setState({ modalVisible: false });
+                        this.deletePicture(this.state.pictureToDelete);
+                      }}
+                    >
+                      <Text style={ styles['buttonOption--main__text'] }>DELETE</Text>
+                    </TouchableHighlight>
+                  </View>
+                </Modal>
               </View>
-            </Modal>
-          </View>
+            );
+          }
         }
       </Consumer>
     );

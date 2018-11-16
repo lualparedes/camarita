@@ -52,11 +52,14 @@ export default class CameraView extends React.Component<CameraProps, CameraState
         const { status } = permissions;
         this.setState({ hasCameraPermission: status === 'granted' });
       })
-      .catch((err) => { console.log(err); });
+      .catch((err) => { console.log('Permission error: ', err); });
   }
 
   render() {
     const { hasCameraPermission } = this.state;
+    const iconCamTriggerSrc = this.props.context === 'light' ?
+      require('../../assets/img/icon_cam_trigger--light.png') :
+      require('../../assets/img/icon_cam_trigger--dark.png');
 
     if (hasCameraPermission === null) {
       return <View/>;
@@ -70,18 +73,22 @@ export default class CameraView extends React.Component<CameraProps, CameraState
         <View style={{ flex: 1 }}>
           <Camera
             ref={ (ref) => { this.camera = ref; } }
-            style={ styles.container } 
+            style={ styles.container }
             type={ this.state.type }
           >
             <Consumer>
               {
-                (theme) =>
-                <TouchableOpacity onPress={ this.takePicture }>
-                  <Image
-                    style={ styles.trigger }
-                    source={ require('../../assets/img/icon_cam_trigger.png') }
-                  />
-                </TouchableOpacity>
+                (theme) => {
+
+                  return (
+                    <TouchableOpacity onPress={ this.takePicture }>
+                      <Image
+                        style={ styles.trigger }
+                        source={ iconCamTriggerSrc }
+                      />
+                    </TouchableOpacity>
+                  );
+                }
               }
             </Consumer>
           </Camera>

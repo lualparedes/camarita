@@ -6,7 +6,7 @@ import { Router, Route, Link } from 'react-router-native';
 import createHistory from 'history/createMemoryHistory';
 
 import styles from './App.styles';
-import { Provider } from './Context';
+import { Provider, Consumer } from './Context';
 import MainView from './components/views/MainView';
 import CameraView from './components/views/Camera';
 import AppCameraRoll from './components/views/AppCameraRoll';
@@ -35,11 +35,36 @@ export default class App extends React.Component<AppProps, AppState> {
   render() {
     return this.state.loadedAssets && (
       <Router history={ history }>
-        <Provider value={'light'}>
+        <Provider value={'dark'}>
           <View style={ styles.app }>
-            <Route exact path="/" component={ MainView }/>
-            <Route path="/camera" component={ CameraView }/>
-            <Route path="/camera-roll" component={ AppCameraRoll }/>
+            <Consumer>
+              {
+                (theme) =>
+                <Route
+                  exact
+                  path="/"
+                  render={ (props) => <MainView {...props} context={ theme }/> }
+                />
+              }
+            </Consumer>
+            <Consumer>
+              {
+                (theme) =>
+                <Route
+                  path="/camera"
+                  render={ (props) => <CameraView {...props} context={ theme }/> }
+                />
+              }
+            </Consumer>
+            <Consumer>
+              {
+                (theme) =>
+                <Route
+                  path="/camera-roll"
+                  render={ (props) => <AppCameraRoll {...props} context={ theme }/> }
+                />
+              }
+            </Consumer>
           </View>
         </Provider>
       </Router>
