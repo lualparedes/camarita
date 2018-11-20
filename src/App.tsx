@@ -10,6 +10,7 @@ import { Provider, Consumer } from './Context';
 import MainView from './components/views/MainView';
 import CameraView from './components/views/Camera';
 import AppCameraRoll from './components/views/AppCameraRoll';
+import OptionsMenu from './components/views/OptionsMenu';
 
 const history = createHistory();
 
@@ -51,6 +52,7 @@ export default class App extends React.Component<AppProps, AppState> {
               {
                 (theme) =>
                 <Route
+                  exact
                   path="/camera"
                   render={ (props) => <CameraView {...props} context={ theme }/> }
                 />
@@ -60,8 +62,19 @@ export default class App extends React.Component<AppProps, AppState> {
               {
                 (theme) =>
                 <Route
+                  exact
                   path="/camera-roll"
                   render={ (props) => <AppCameraRoll {...props} context={ theme }/> }
+                />
+              }
+            </Consumer>
+            <Consumer>
+              {
+                (theme) =>
+                <Route
+                  exact
+                  path="/options-menu"
+                  render={ (props) => <OptionsMenu {...props} context={ theme }/> }
                 />
               }
             </Consumer>
