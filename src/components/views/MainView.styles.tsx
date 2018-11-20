@@ -16,6 +16,15 @@ const styles = StyleSheet.create({
   'container--dark': {
     backgroundColor: constants.themeDark.COLOR_BG,
   },
+  iconMenu: {
+    position: 'absolute',
+    top: 38,
+    right: 16,
+  },
+  iconMenu__img: {
+    height: 32,
+    width: 32,
+  },
   message: {
     fontFamily: 'Muli',
     textAlign: 'center',
