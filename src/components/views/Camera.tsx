@@ -15,9 +15,12 @@ import { Consumer } from '../../Context';
 
 export default class CameraView extends React.Component<CameraProps, CameraState> {
 
-  state = {
-    hasCameraPermission: null,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      hasCameraPermission: null,
+    };
+  }
 
   savePicture = (photo) => {
     FileSystem.moveAsync({
