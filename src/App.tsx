@@ -36,7 +36,7 @@ export default class App extends React.Component<AppProps, AppState> {
   render() {
     return this.state.loadedAssets && (
       <Router history={ history }>
-        <Provider value={'dark'}>
+        <Provider value={'light'}>
           <View style={ styles.app }>
             <Consumer>
               {

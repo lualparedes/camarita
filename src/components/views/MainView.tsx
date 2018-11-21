@@ -35,6 +35,7 @@ export default class MainView extends React.Component<MainViewProps, MainViewSta
             <ButtonMain
               label='Take picture'
               to='/camera'
+              context={ this.props.context }
             />
           </View>
         }

@@ -9,12 +9,6 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
     paddingHorizontal: 32,
   },
-  'buttonMain--light': {
-    backgroundColor: constants.themeLight.COLOR_ACCENT_2,
-  },
-  'buttonMain--dark': {
-    backgroundColor: constants.themeDark.COLOR_ACCENT_2,
-  },
   buttonMain__text: {
     color: '#ffffff',
     fontFamily: 'Muli-Black',
