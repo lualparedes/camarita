@@ -47,7 +47,7 @@ export default class AppCameraRoll extends React.Component<AppCameraRollProps, A
   }
 
   render() {
-    const iconDeleteSrc = this.props.context === 'light' ?
+    const iconDeleteSrc = this.props.theme === 'light' ?
       require('../../assets/img/icon_delete--light.png') :
       require('../../assets/img/icon_delete--dark.png');
     return (

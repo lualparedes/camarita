@@ -13,7 +13,10 @@ export default class OptionsMenu extends React.Component<OptionsMenuProps, Optio
         {
           (theme) =>
           <View style={ [styles.container, styles[`container--${theme}`]] }>
-            <Header title='Options'></Header>
+            <Header
+              title='Options'
+              theme={ this.props.theme }
+            />
             <View style={ styles.listOfOptions }>
               <View style={ styles.option }>
                 <Text 

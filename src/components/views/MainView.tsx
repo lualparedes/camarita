@@ -9,12 +9,13 @@ import ButtonMain from '../atoms/ButtonMain';
 
 export default class MainView extends React.Component<MainViewProps, MainViewState> {
   render() {
-    const iconMenuSrc = this.props.context === 'light' ?
+    const iconMenuSrc = this.props.theme === 'light' ?
       require('../../assets/img/icon_menu--light.png') :
       require('../../assets/img/icon_menu--dark.png');
-    const dogSrc = this.props.context === 'light' ?
+    const dogSrc = this.props.theme === 'light' ?
       require('../../assets/img/dog--light.png') :
       require('../../assets/img/dog--dark.png');
+
     return (
       <Consumer>
         {
@@ -37,7 +38,7 @@ export default class MainView extends React.Component<MainViewProps, MainViewSta
             <ButtonMain
               label='Take picture'
               to='/camera'
-              context={ this.props.context }
+              theme={ this.props.theme }
             />
           </View>
         }

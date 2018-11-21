@@ -60,7 +60,7 @@ export default class CameraView extends React.Component<CameraProps, CameraState
 
   render() {
     const { hasCameraPermission } = this.state;
-    const iconCamTriggerSrc = this.props.context === 'light' ?
+    const iconCamTriggerSrc = this.props.theme === 'light' ?
       require('../../assets/img/icon_cam_trigger--light.png') :
       require('../../assets/img/icon_cam_trigger--dark.png');
 

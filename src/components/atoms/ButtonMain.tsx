@@ -10,7 +10,7 @@ import { Consumer } from '../../Context';
 
 export default class ButtonMain extends React.Component<ButtonMainProps, ButtonMainState> {
   render() {
-    const gradient = this.props.context === 'light' ?
+    const gradient = this.props.theme === 'light' ?
       constants.themeLight.GRADIENT_MAIN :
       constants.themeDark.GRADIENT_MAIN;
 

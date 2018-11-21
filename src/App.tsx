@@ -44,7 +44,7 @@ export default class App extends React.Component<AppProps, AppState> {
                 <Route
                   exact
                   path="/"
-                  render={ (props) => <MainView {...props} context={ theme }/> }
+                  render={ (props) => <MainView {...props} theme={ theme }/> }
                 />
               }
             </Consumer>
@@ -54,7 +54,7 @@ export default class App extends React.Component<AppProps, AppState> {
                 <Route
                   exact
                   path="/camera"
-                  render={ (props) => <CameraView {...props} context={ theme }/> }
+                  render={ (props) => <CameraView {...props} theme={ theme }/> }
                 />
               }
             </Consumer>
@@ -64,7 +64,7 @@ export default class App extends React.Component<AppProps, AppState> {
                 <Route
                   exact
                   path="/camera-roll"
-                  render={ (props) => <AppCameraRoll {...props} context={ theme }/> }
+                  render={ (props) => <AppCameraRoll {...props} theme={ theme }/> }
                 />
               }
             </Consumer>
@@ -74,7 +74,7 @@ export default class App extends React.Component<AppProps, AppState> {
                 <Route
                   exact
                   path="/options-menu"
-                  render={ (props) => <OptionsMenu {...props} context={ theme }/> }
+                  render={ (props) => <OptionsMenu {...props} theme={ theme }/> }
                 />
               }
             </Consumer>
