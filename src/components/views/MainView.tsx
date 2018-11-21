@@ -5,7 +5,6 @@ import { Link } from 'react-router-native';
 
 import styles from './MainView.styles';
 import { Consumer } from '../../Context';
-import FeatureImage from '../atoms/FeatureImage';
 import ButtonMain from '../atoms/ButtonMain';
 
 export default class MainView extends React.Component<MainViewProps, MainViewState> {
@@ -13,6 +12,9 @@ export default class MainView extends React.Component<MainViewProps, MainViewSta
     const iconMenuSrc = this.props.context === 'light' ?
       require('../../assets/img/icon_menu--light.png') :
       require('../../assets/img/icon_menu--dark.png');
+    const dogSrc = this.props.context === 'light' ?
+      require('../../assets/img/dog--light.png') :
+      require('../../assets/img/dog--dark.png');
     return (
       <Consumer>
         {
@@ -27,7 +29,7 @@ export default class MainView extends React.Component<MainViewProps, MainViewSta
                 style={ styles.iconMenu__img }
               />
             </Link>
-            <FeatureImage/>
+            <Image source={ dogSrc } />
             <Text style={ [styles.message, styles[`message--${theme}`]] }>
               Hey there!{'\n'}
               I'm Doug the photogenic dog and I'm here to wish you a happy picture

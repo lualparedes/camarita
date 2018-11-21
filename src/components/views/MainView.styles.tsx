@@ -29,7 +29,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Muli',
     textAlign: 'center',
     paddingHorizontal: 48,
-    paddingTop: 36,
     paddingBottom: 48,
     fontSize: 16,
     lineHeight: 24,
