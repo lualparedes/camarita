@@ -8,32 +8,81 @@ import { Consumer } from '../../Context';
 
 export default class CameraView extends React.Component<HeaderProps, HeaderState> {
 
-	render() {
-		return (
-			<Consumer>
-				{
-					(theme) =>
-					<View
-						style={[
-							styles.header,
-							styles[`header--${theme}`]
-						]}
-					>
-						<Link to="/camera">
-						<Image 
-							source={ require('../../assets/img/icon_back.png') }
-							style={ styles.header__icon }
-						/>
-						</Link>
-					  <Text style={[
-					  	styles.header__title,
-					  	styles[`header__title--${theme}`]
-					  ]}>
-					  	{ this.props.title.toUpperCase() }
-					  </Text>
-					</View>
-				}
-		  </Consumer>
-		);
-	}
+  constructor(props) {
+    super(props);
+    this.state = {
+      elevated: false,
+      showIconLeft: false,
+      showIconRight: false,
+      leftIconSrc: null,
+      rightIconSrc: null,
+      headerStyles: [],
+    };
+  }
+
+  componentWillMount() {
+
+    if (this.props.title.toLowerCase() === 'options') {
+      this.setState({
+        showIconRight: true,
+        rightIconSrc: require("../../assets/img/icon_close.png")
+      });
+    }
+
+    else if (this.props.title.toLowerCase() === 'pictures taken') {
+      this.setState({
+        elevated: true,
+        showIconLeft: true,
+        showIconRight: true,
+        leftIconSrc: require("../../assets/img/icon_back.png"),
+        rightIconSrc: require("../../assets/img/icon_menu.png"),
+      });
+    }
+  }
+
+  render() {
+    const headerStyles = this.state.elevated ?
+      [
+        styles.header,
+        styles[`header--elevated`],
+        styles[`header--${this.props.theme}`]
+      ] :
+      [
+        styles.header,
+        styles[`header--${this.props.theme}`]
+      ];
+
+    return (
+      <Consumer>
+        {
+          (theme) =>
+          <View style={ headerStyles }>
+            {
+              this.state.showIconLeft ? 
+                <Link to={ this.props.leftTo }>
+                  <Image
+                    source={ this.state.leftIconSrc }
+                    style={ styles.header__icon }
+                  />
+                </Link>
+              : <View style={ styles.header__iconPlaceholder }/>
+            }            
+            <Text style={ styles.header__title }>
+              { this.props.title.toUpperCase() }
+            </Text>
+            {
+              this.state.showIconRight ? 
+                <Link to={ this.props.rightTo }>
+                  <Image
+                    source={ this.state.rightIconSrc }
+                    style={ styles.header__icon }
+                  />
+                </Link>
+              : <View style={ styles.header__iconPlaceholder }/>
+            } 
+          </View>
+        }
+      </Consumer>
+    );
+  }
 }
