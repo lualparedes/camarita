@@ -56,7 +56,12 @@ export default class AppCameraRoll extends React.Component<AppCameraRollProps, A
           (theme) => {
             return (
               <View style={{ flex: 1 }}>
-                <Header title='Pictures taken'></Header>
+                <Header
+                  theme={ this.props.theme }
+                  title='Pictures taken'
+                  leftTo="/camera"
+                  rightTo="/options-menu"
+                />
                 <ScrollView
                   contentContainerStyle={[
                     styles.scrollView,
