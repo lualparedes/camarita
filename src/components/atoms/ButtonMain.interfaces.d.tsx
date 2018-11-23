@@ -1,8 +1,8 @@
-declare interface BottonMainProps {
+declare interface ButtonMainProps {
   to: string;
   label: string;
 }
 
-declare interface BottonMainState {
+declare interface ButtonMainState {
 
 }
