@@ -6,7 +6,7 @@ import { Link } from 'react-router-native';
 import styles from './Header.styles';
 import { Consumer } from '../../Context';
 
-export default class CameraView extends React.Component<HeaderProps, HeaderState> {
+export default class Header extends React.Component<HeaderProps, HeaderState> {
 
   constructor(props) {
     super(props);
