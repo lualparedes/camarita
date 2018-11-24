@@ -5,6 +5,7 @@ import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import styles from './OptionsMenu.styles';
 import { Consumer } from '../../Context';
 import Header from '../molecules/Header';
+import Switch from '../atoms/Switch';
 
 export default class OptionsMenu extends React.Component<OptionsMenuProps, OptionsMenuState> {
   render() {
@@ -28,19 +29,10 @@ export default class OptionsMenu extends React.Component<OptionsMenuProps, Optio
                 >
                   Dark mode
                 </Text>
-                <TouchableOpacity
-                  style={[
-                    styles.toggle,
-                    styles[`toggle--${theme}`]
-                  ]}
-                >
-                  <View
-                    style={[
-                      styles.toggle__handle,
-                      styles[`toggle__handle--${theme}`]
-                    ]}
-                  />
-                </TouchableOpacity>
+                <Switch
+                  isOn={ false }
+                  onToggle={ (isOn) => console.log('isOn:', isOn) }
+                />
               </View>
             </View>
           </View>

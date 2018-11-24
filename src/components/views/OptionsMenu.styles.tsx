@@ -17,34 +17,20 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     paddingVertical: 16,
     alignSelf: 'stretch',
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   option__title: {
     fontFamily: 'Muli',
     fontSize: 20,
+    flexGrow: 1,
   },
   'option__title--light': {
     color: constants.themeLight.COLOR_TEXT,
   },
   'option__title--dark': {
     color: constants.themeDark.COLOR_TEXT,
-  },
-  toggle: {
-
-  },
-  'toggle--light': {
-
-  },
-  'toggle--dark': {
-
-  },
-  toggle__handle: {
-
-  },
-  'toggle__handle--light': {
-
-  },
-  'toggle__handle--dark': {
-
   },
 });
 
