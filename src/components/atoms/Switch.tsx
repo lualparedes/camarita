@@ -2,6 +2,7 @@
 import * as React from 'react';
 import { TouchableHighlight, Animated, View } from 'react-native';
 import { Link } from 'react-router-native';
+import { LinearGradient } from 'expo';
 
 import constants from '../../assets/styles/config';
 import styles from './Switch.styles';
@@ -31,7 +32,7 @@ export default class Switch extends React.Component<SwitchProps, SwitchState> {
    }
 
    /**
-    * @note {1} The extra views are a hacky solution for that helps to overcome
+    * @note {1} The extra views are a hacky solution that allows me to overcome
     *           the overflow problem on Android.
     */
   render() {
@@ -43,9 +44,9 @@ export default class Switch extends React.Component<SwitchProps, SwitchState> {
           <TouchableHighlight
             style={[
               styles.switch__slide,
-              { backgroundColor: this.state.isOn ? "#535560" : "#cccccc", }
+              { backgroundColor: this.state.isOn ? '#535560' : '#cccccc', }
             ]}
-            onPress={() => this.handlePress()}
+            onPress={ () => this.handlePress() }
           >
           <View/>
           </TouchableHighlight>
@@ -53,15 +54,24 @@ export default class Switch extends React.Component<SwitchProps, SwitchState> {
             style={[
               styles.switch__knob,
               {
-                backgroundColor: 
-                  this.state.isOn ? constants.themeDark.COLOR_ACCENT_2 : "#808080",
                 transform: [{
-                  translateX: this.state.isOn ? 23 : 0
+                  translateX: this.state.isOn ? 22 : 0
                 }]
               }
             ]}
-            onPress={() => this.handlePress()}
-          />
+            onPress={ () => this.handlePress() }
+          >
+            <LinearGradient
+              colors={
+                this.state.isOn ?
+                constants.themeDark.GRADIENT_MAIN :
+                ['#808080', '#808080']
+              }
+              start={ [0, 0.5] }
+              end={ [1, 0.5] }
+              style={ styles.switch__knobBackground }
+            />
+          </Animated.View>
         </View>
       </TouchableHighlight>
     );

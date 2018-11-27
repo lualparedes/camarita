@@ -19,12 +19,17 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     position: 'absolute',
     top: 0,
-    left: 18 + -2,
+    left: 18,
     elevation: 4,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.8,
     shadowRadius: 2,
+  },
+  switch__knobBackground: {
+    width: 20,
+    height: 20,
+    borderRadius: 10,
   },
 });
 

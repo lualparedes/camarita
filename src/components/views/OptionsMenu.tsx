@@ -30,7 +30,8 @@ export default class OptionsMenu extends React.Component<OptionsMenuProps, Optio
                   Dark mode
                 </Text>
                 <Switch
-                  isOn={ false }
+                  theme={ this.props.theme }
+                  isOn={ this.props.theme === 'light' ? false : true }
                   onToggle={ (isOn) => console.log('isOn:', isOn) }
                 />
               </View>
