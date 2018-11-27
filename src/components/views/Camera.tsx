@@ -81,7 +81,7 @@ export default class CameraView extends React.Component<CameraProps, CameraState
           >
             <Consumer>
               {
-                (theme) => {
+                ({ theme, toggleTheme }) => {
 
                   return (
                     <TouchableOpacity onPress={ this.takePicture }>

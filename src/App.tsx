@@ -16,8 +16,22 @@ const history = createHistory();
 
 export default class App extends React.Component<AppProps, AppState> {
 
-  constructor() {
-    this.state = { loadedAssets: false };
+  constructor(props) {
+    super(props);
+
+    this.toggleTheme = () => {
+      this.setState(
+        (prevState) => {
+          return { theme: prevState.theme === 'light' ? 'dark' : 'light' };
+        }
+      );
+    };
+
+    this.state = {
+      loadedAssets: false,
+      theme: 'light',
+      toggleTheme: this.toggleTheme,
+    };
   }
 
   componentDidMount() {
@@ -36,11 +50,11 @@ export default class App extends React.Component<AppProps, AppState> {
   render() {
     return this.state.loadedAssets && (
       <Router history={ history }>
-        <Provider value={'dark'}>
+        <Provider value={ this.state }>
           <View style={ styles.app }>
             <Consumer>
               {
-                (theme) =>
+                ({ theme, toggleTheme }) =>
                 <Route
                   exact
                   path="/"
@@ -50,7 +64,7 @@ export default class App extends React.Component<AppProps, AppState> {
             </Consumer>
             <Consumer>
               {
-                (theme) =>
+                ({ theme, toggleTheme }) =>
                 <Route
                   exact
                   path="/camera"
@@ -60,7 +74,7 @@ export default class App extends React.Component<AppProps, AppState> {
             </Consumer>
             <Consumer>
               {
-                (theme) =>
+                ({ theme, toggleTheme }) =>
                 <Route
                   exact
                   path="/camera-roll"
@@ -70,7 +84,7 @@ export default class App extends React.Component<AppProps, AppState> {
             </Consumer>
             <Consumer>
               {
-                (theme) =>
+                ({ theme, toggleTheme }) =>
                 <Route
                   exact
                   path="/options-menu"

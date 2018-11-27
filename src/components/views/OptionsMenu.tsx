@@ -12,10 +12,10 @@ export default class OptionsMenu extends React.Component<OptionsMenuProps, Optio
     return (
       <Consumer>
         {
-          (theme) =>
+          ({ theme, toggleTheme }) =>
           <View style={ [styles.container, styles[`container--${theme}`]] }>
             <Header
-              theme={ this.props.theme }
+              theme={ theme }
               title="Options"
               rightTo="/"
             />
@@ -32,7 +32,7 @@ export default class OptionsMenu extends React.Component<OptionsMenuProps, Optio
                 <Switch
                   theme={ this.props.theme }
                   isOn={ this.props.theme === 'light' ? false : true }
-                  onToggle={ (isOn) => console.log('isOn:', isOn) }
+                  onToggle={toggleTheme}
                 />
               </View>
             </View>

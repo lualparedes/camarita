@@ -44,8 +44,8 @@ export default class Header extends React.Component<HeaderProps, HeaderState> {
     const headerStyles = this.state.elevated ?
       [
         styles.header,
-        styles[`header--elevated`],
-        styles[`header--${this.props.theme}`]
+        styles[`header--${this.props.theme}`],
+        styles[`header--elevated`]
       ] :
       [
         styles.header,
@@ -55,7 +55,7 @@ export default class Header extends React.Component<HeaderProps, HeaderState> {
     return (
       <Consumer>
         {
-          (theme) =>
+          ({ theme, toggleTheme }) =>
           <View style={ headerStyles }>
             {
               this.state.showIconLeft ? 

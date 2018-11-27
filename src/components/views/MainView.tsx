@@ -19,7 +19,7 @@ export default class MainView extends React.Component<MainViewProps, MainViewSta
     return (
       <Consumer>
         {
-          (theme) =>
+          ({ theme, toggleTheme }) =>
           <View style={ [styles.container, styles[`container--${theme}`]] }>
             <Link
               to="/options-menu"

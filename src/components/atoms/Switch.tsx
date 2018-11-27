@@ -19,7 +19,7 @@ export default class Switch extends React.Component<SwitchProps, SwitchState> {
   handlePress() {
     this.setState(
       { isOn: !this.state.isOn },
-      () => this.props.onToggle(this.state.isOn)
+      () => this.props.onToggle()
     )
   }
 

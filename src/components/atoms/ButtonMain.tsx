@@ -17,7 +17,7 @@ export default class ButtonMain extends React.Component<ButtonMainProps, ButtonM
     return (
       <Consumer>
         {
-          (theme) =>
+          ({ theme, toggleTheme }) =>
           <Link to={ this.props.to }>
             <View>
               <LinearGradient

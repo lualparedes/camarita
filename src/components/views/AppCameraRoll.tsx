@@ -53,7 +53,7 @@ export default class AppCameraRoll extends React.Component<AppCameraRollProps, A
     return (
       <Consumer>
         {
-          (theme) => {
+          ({ theme, toggleTheme }) => {
             return (
               <View style={{ flex: 1 }}>
                 <Header
