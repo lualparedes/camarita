@@ -1,4 +1,5 @@
 declare interface HeaderProps {
+  theme: string;
   title: string;
   leftTo: string;
   rightTo: string;

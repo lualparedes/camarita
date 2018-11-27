@@ -1,7 +1,7 @@
 declare interface CameraProps {
-
+  theme: string;
 }
 
 declare interface CameraState {
-	hasCameraPermission: boolean | null;
+  hasCameraPermission: boolean | null;
 }
