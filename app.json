@@ -9,5 +9,6 @@
     "icon": "./src/assets/img/icon.png",
     "version": "0.0.1",
     "slug": "camarita",
+    "entryPoint": "./src/App",
   }
 }
