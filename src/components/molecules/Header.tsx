@@ -71,7 +71,7 @@ export default class Header extends React.Component<HeaderProps, HeaderState> {
               { this.props.title.toUpperCase() }
             </Text>
             {
-              this.state.showIconRight ? 
+              this.state.showIconRight ?
                 <Link to={ this.props.rightTo }>
                   <Image
                     source={ this.state.rightIconSrc }
