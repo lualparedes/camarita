@@ -26,7 +26,10 @@ export default class ButtonMain extends React.Component<ButtonMainProps, ButtonM
                 end={ [1, 0.5] }
                 style={ styles.buttonMain }
               >
-                <Text style={ styles.buttonMain__text }>
+                <Text
+                  style={ styles.buttonMain__text }
+                  testID="buttonMain__text"
+                >
                   { this.props.label.toUpperCase() }
                 </Text>
               </LinearGradient>
