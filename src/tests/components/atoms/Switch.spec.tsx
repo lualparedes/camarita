@@ -14,13 +14,3 @@ it('renders without crashing', () => {
     ).toJSON();
   expect(rendered).toBeTruthy();
 });
-
-it('another test', () => {
-  const rendered = renderer.create(
-      <Switch
-        inOn={ false }
-        onToggle={ () => {} }
-      />
-    ).root.find(TouchableHighlight);
-  console.log(rendered);
-});
