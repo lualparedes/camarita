@@ -4,31 +4,16 @@ import { Provider } from '../../../Context';
 import { StaticRouter } from 'react-router-native';
 import TestRenderer from 'react-test-renderer';
 import { Text } from 'react-native';
+import { LinearGradient } from 'expo';
 
 describe('ButtonMain component', () => {
 
-  it('renders without crashing', () => {
-    const rendered = TestRenderer.create(
-      <Provider
-        value={{
-          theme: 'light',
-          toggleTheme: jest.mock()
-        }}
-      >
-        <StaticRouter context={{}}>
-          <ButtonMain
-            to="test-route"
-            label="Test"
-            theme="light"
-          />
-        </StaticRouter>
-      </Provider>
-      ).toJSON();
-    expect(rendered).toBeTruthy();
-  });
+  let testRenderer;
+  let testInstance;
 
-  it('has one Text descendant', () => {
-    const testRenderer = TestRenderer.create(
+  beforeEach(() => {
+
+    testRenderer = TestRenderer.create(
       <Provider
         value={{
           theme: 'light',
@@ -44,7 +29,16 @@ describe('ButtonMain component', () => {
         </StaticRouter>
       </Provider>
     );
-    const testInstance = testRenderer.root;
-    expect(testInstance.findAllByType(Text).length).toBe(1);
+
+    testInstance = testRenderer.root;
+  });
+
+  it('renders without crashing', () => {
+    expect(testRenderer.toJSON()).toBeTruthy();
+  });
+
+  it('has the right gradient according to theme', () => {
+    expect(testInstance.findByType(LinearGradient).props.colors)
+      .toEqual(['#f6515a', '#faaa54']);
   });
 });
